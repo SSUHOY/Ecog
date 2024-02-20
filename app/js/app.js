@@ -1,4 +1,6 @@
 import { Swiper } from "swiper";
+import { gsap } from "gsap";
+import { Power2 } from "gsap";
 import {
   Parallax,
   Mousewheel,
@@ -21,7 +23,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const swiperIMG = new Swiper(".slider-img", {
     loop: false,
     speed: 2400,
+    slidesPerView: 1,
     parallax: true,
+    pagination: {
+      el: ".slider-pagination-count .total",
+      type: "custom",
+      renderCustom: function (swiper, current, total) {
+        let totalRes = total >= 10 ? total : `0${total}`;
+        return totalRes;
+      },
+    },
   });
 
   const swiperText = new Swiper(".slider-text", {
@@ -46,4 +57,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   swiperIMG.controller.control = swiperText;
   swiperText.controller.control = swiperIMG;
+
+  let curenum = document.querySelector(".slider-pagination-count .current"),
+    pagecur = document.querySelector(".slider-pagination-current__num");
+
+  swiperText.on("slideChange", function () {
+    let ind = swiperText.realIndex + 1;
+    let indRes = ind >= 10 ? ind : `0${ind}`;
+    console.log("🚀 ~ ind:", ind);
+    gsap.to(curenum, 0.2, {
+      force3D: true,
+      y: -10,
+      opacity: 0,
+      ease: Power2.easeOut,
+      onComplete: function () {
+        gsap.to(curenum, 0.1, { force3D: true, y: 10 });
+        curenum.innerHTML = indRes;
+        pagecur.innerHTML = indRes;
+      },
+    });
+    gsap.to(curenum, 0.2, {
+      force3D: true,
+      y: 0,
+      opacity: 1,
+      ease: Power2.easeOut,
+      delay: 0.3,
+    });
+  });
+  // swiperText.on("sliderChange", function() {
+  //   let ind = swiperText.activeIndex;
+  //   console.log(ind);
+  // });
 });
