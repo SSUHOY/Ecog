@@ -9,8 +9,19 @@ import {
   Scrollbar,
   Navigation,
 } from "swiper/modules";
+import MicroModal from "micromodal";
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Modal
+
+  MicroModal.init({
+    openTrigger: "data-micromodal-open",
+    closeTrigger: "data-micromodal-close",
+    disableFocus: true,
+    awaitCloseAnimation: true,
+    awaitOpenAnimation: true,
+  });
+
   Swiper.use([
     Parallax,
     Mousewheel,
