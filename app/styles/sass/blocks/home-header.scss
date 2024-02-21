@@ -425,7 +425,7 @@ html {
   background-image: url(../../../images/dist/leaf-icon_2.png);
   background-repeat: no-repeat;
   height: 356px;
-  left: 65%;
+  left: 58%;
   position: fixed;
   right: 0;
   bottom: 0;
@@ -444,10 +444,11 @@ html {
   font-weight: 500;
   font-size: 24px;
   .current {
-    font-size: 40px;
     color: $accent;
     display: inline-block;
-    min-width: 42px;
+    width: 32px;
+    -webkit-text-stroke: 1px transparent;
+    font-size: 32px;
   }
 }
 
@@ -463,4 +464,11 @@ html {
     color: $accent;
     -webkit-text-stroke: 1px transparent;
   }
+}
+
+.swiper-pagination-current {
+  font-size: 40px;
+  color: $accent;
+  display: inline-block;
+  min-width: 24px;
 }
