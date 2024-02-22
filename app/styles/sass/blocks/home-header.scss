@@ -8,6 +8,9 @@ html {
   height: 100%;
   color: #fff;
   padding-top: $size;
+  @include media-breakpoint-down(sm) {
+    padding-top: $size-sm;
+  }
 }
 
 .top-line {
@@ -20,10 +23,19 @@ html {
   background-color: $deep;
   display: flex;
   align-self: center;
+  @include media-breakpoint-down(sm) {
+    height: $size-sm;
+  }
 }
 
 .logo {
   flex: 0 0 70px;
+  @include media-breakpoint-down(md) {
+    flex: 1 0 0;
+  }
+  @include media-breakpoint-down(sm) {
+    flex: 1 0 0;
+  }
 }
 
 .logo__img-wrapper {
@@ -32,12 +44,23 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  @include media-breakpoint-down(sm) {
+    width: $size-sm;
+    height: $size-sm;
+  }
 }
 
 .menu-button-container {
   flex: 0 0 70px;
   text-align: right;
   height: $size;
+  @include media-breakpoint-down(sm) {
+    height: $size-sm;
+  }
+  @include media-breakpoint-down(md) {
+    height: $size-sm;
+    flex: 1 0 0;
+  }
 }
 
 .menu-button {
@@ -53,6 +76,9 @@ html {
   transition: background 0.25s ease-out;
   &:hover {
     background-color: $accent;
+  }
+  @include media-breakpoint-down(sm) {
+    height: $size-sm;
   }
 }
 
@@ -75,17 +101,22 @@ html {
 }
 
 .top-line__contacts {
-  text-transform: uppercase;
+  text-transform: lowercase;
   font-weight: 500;
   font-size: 12.5px;
+  font-family: roboto-vh, sans-serif;
+  padding: 10px;
   letter-spacing: 0.4em;
   color: rgba(#fff, 0.5);
   display: flex;
   align-items: center;
-  @media screen and (max-width: 768px) {
-    font-size: 7px;
-    margin-left: 24px;
-    justify-content: center;
+  @include media-breakpoint-down(md) {
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+  @include media-breakpoint-down(sm) {
+    text-transform: uppercase;
+    font-size: 8px;
   }
 }
 
@@ -99,14 +130,25 @@ html {
     display: none;
   }
 }
-
+.contacts-title {
+  @media (max-width: 360px) {
+    display: none;
+  }
+}
 .top-line__numbers,
 .top-line__text {
   font-family: roboto-vh, sans-serif;
   margin-left: 7px;
   font-weight: 600;
+  margin-bottom: 2px;
+  text-transform: uppercase;
   a {
     color: $accent;
+  }
+}
+.top-line__address {
+  @include media-breakpoint-down(md) {
+    display: none;
   }
 }
 
@@ -117,12 +159,6 @@ html {
 
 .top-line__text {
   color: rgba(#fff, 0.75);
-}
-
-.top-line__address {
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
 }
 
 .home-header__content {
@@ -142,6 +178,10 @@ html {
   align-items: center;
   justify-content: center;
   z-index: 5;
+  @include media-breakpoint-down(sm) {
+    width: $size-sm;
+    padding-top: $size-sm;
+  }
 }
 
 .home-aside__decoration {
@@ -192,6 +232,15 @@ html {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 12px;
+  @include media-breakpoint-down(sm) {
+    width: $size-sm;
+    flex: 0 0 $size-sm;
+  }
+}
+.images__logo {
+  @include media-breakpoint-down(sm) {
+    width: $size-sm;
+  }
 }
 
 // SLIDER
@@ -201,6 +250,9 @@ html {
   padding-left: $size;
   overflow: hidden;
   position: relative;
+  @include media-breakpoint-down(sm) {
+    padding-left: $size-sm;
+  }
 }
 
 .slider-bottom {
@@ -212,6 +264,11 @@ html {
   left: $size;
   z-index: 5;
   width: calc(75% - #{$size});
+  @include media-breakpoint-down(sm) {
+    height: $size-sm;
+    left: $size-sm;
+    width: 100%;
+  }
 }
 
 .slider-share {
@@ -241,6 +298,10 @@ html {
       background-color: $accent;
     }
   }
+  @include media-breakpoint-down(sm) {
+    width: $size-sm;
+    height: $size-sm;
+  }
 }
 
 .slider-img {
@@ -255,6 +316,9 @@ html {
     height: 100%;
     background-color: rgba(#000, 0.4);
     z-index: 2;
+  }
+  @include media-breakpoint-down(sm) {
+    width: 100%;
   }
 }
 
@@ -276,6 +340,9 @@ html {
   width: 100%;
   height: 100%;
   height: calc(100% - #{$size});
+  @include media-breakpoint-down(sm) {
+    height: calc(100% - #{$size-sm});
+  }
 }
 
 .slider-text__slide {
@@ -286,19 +353,25 @@ html {
 
 .slider-text__content {
   text-align: right;
-  padding-right: 12%;
+  padding-right: 20%;
   padding-bottom: 200px;
 }
 
 .slider-text__heading {
   color: #fff;
-  font-size: 50px;
+  font-size: 44px;
   text-transform: uppercase;
   font-family: oswald, sans-serif;
   font-style: normal;
   font-weight: 600;
   line-height: 120%;
   letter-spacing: 1px;
+  @include media-breakpoint-down(md) {
+    font-size: 40px;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 28px;
+  }
 }
 
 .slider-text__desc {
@@ -312,16 +385,30 @@ html {
   margin-top: 15px;
   margin-bottom: 20px;
   clear: both;
+  @include media-breakpoint-down(md) {
+    font-size: 16px;
+    max-width: 300px;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 10px;
+    max-width: 240px;
+  }
 }
 
-.slider-button__request {
-  width: 173.333px;
-  height: 39px;
-  color: #fff;
-  top: 0;
-  left: 0;
-  float: right;
-  clear: both;
+.slider-button {
+  &__request {
+    width: 173.333px;
+    height: 39px;
+    color: #fff;
+    top: 0;
+    left: 0;
+    float: right;
+    clear: both;
+    @include media-breakpoint-down(sm) {
+      width: 164.333px;
+      height: 39px;
+    }
+  }
 }
 
 .swiper-pagination {
@@ -361,6 +448,12 @@ html {
       bottom: -3px;
     }
   }
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
 }
 
 .slider-scrollbar {
@@ -381,6 +474,9 @@ html {
     width: 15px;
     top: -1px;
     cursor: pointer;
+  }
+  @include media-breakpoint-down(md) {
+    display: none;
   }
 }
 
@@ -419,6 +515,9 @@ html {
   .swiper-button-next {
     right: 0;
   }
+  @include media-breakpoint-down(sm) {
+    left: -20px;
+  }
 }
 
 .slider-leaf {
@@ -431,6 +530,12 @@ html {
   bottom: 0;
   width: 900px;
   z-index: 2;
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
 }
 
 .slider-pagination-count {
@@ -446,9 +551,24 @@ html {
   .current {
     color: $accent;
     display: inline-block;
-    width: 32px;
+    width: 38px;
     -webkit-text-stroke: 1px transparent;
     font-size: 36px;
+    @include media-breakpoint-down(md) {
+      font-size: 30px;
+      width: 31px;
+    }
+    @include media-breakpoint-down(sm) {
+      font-size: 28px;
+      width: 30px;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    right: 0;
+  }
+  @include media-breakpoint-down(sm) {
+    right: -38px;
+    font-size: 16px;
   }
 }
 
@@ -463,6 +583,12 @@ html {
   &__dot {
     color: $accent;
     -webkit-text-stroke: 1px transparent;
+  }
+  @include media-breakpoint-down(md) {
+    font-size: 64px;
+  }
+  @include media-breakpoint-down(sm) {
+    display: none;
   }
 }
 
