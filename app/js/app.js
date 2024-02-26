@@ -98,33 +98,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Cursor
 
-  // const body = document.querySelector("body");
-  // const cursor = document.getElementById("cursor");
-  // const links = document.getElementsByTagName("a");
+  const body = document.querySelector("body");
+  const cursor = document.getElementById("cursor");
+  const links = document.getElementsByTagName("a");
 
-  // let mouseX = 0,
-  //   mouseY = 0,
-  //   posX = 0,
-  //   posY = 0;
+  let mouseX = 0,
+    mouseY = 0,
+    posX = 0,
+    posY = 0;
 
-  // function mouseCoordinates(e) {
-  //   mouseX = e.pageX;
-  //   mouseY = e.pageY;
-  // }
-  // gsap.to({}, 0.01, {
-  //   repeat: -1,
-  //   onRepeat: () => {
-  //     posX += (mouseX - posX) / 6;
-  //     posY += (mouseY - posY) / 6;
-  //     gsap.set(cursor, {
-  //       css: {
-  //         left: posX,
-  //         top: posY,
-  //       },
-  //     });
-  //   },
-  // });
-  // body.addEventListener("mousemove", (e) => {
-  //   mouseCoordinates(e);
-  // });
+  function mouseCoordinates(e) {
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+  }
+  gsap.to({}, 0.01, {
+    repeat: -1,
+    onRepeat: () => {
+      posX += (mouseX - posX) / 6;
+      posY += (mouseY - posY) / 6;
+      gsap.set(cursor, {
+        css: {
+          left: posX,
+          top: posY,
+        },
+      });
+    },
+  });
+  body.addEventListener("mousemove", (e) => {
+    mouseCoordinates(e);
+  });
 });
