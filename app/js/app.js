@@ -9,8 +9,19 @@ import {
   Scrollbar,
   Navigation,
 } from "swiper/modules";
+import MicroModal from "micromodal";
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Modal
+
+  MicroModal.init({
+    openTrigger: "data-micromodal-open",
+    closeTrigger: "data-micromodal-close",
+    disableFocus: true,
+    awaitCloseAnimation: true,
+    awaitOpenAnimation: true,
+  });
+
   Swiper.use([
     Parallax,
     Mousewheel,
@@ -22,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const swiperIMG = new Swiper(".slider-img", {
     loop: false,
-    speed: 2400,
+    speed: 5000,
     slidesPerView: 1,
     parallax: true,
     pagination: {
@@ -84,8 +95,36 @@ document.addEventListener("DOMContentLoaded", () => {
       delay: 0.3,
     });
   });
-  // swiperText.on("sliderChange", function() {
-  //   let ind = swiperText.activeIndex;
-  //   console.log(ind);
+
+  // Cursor
+
+  // const body = document.querySelector("body");
+  // const cursor = document.getElementById("cursor");
+  // const links = document.getElementsByTagName("a");
+
+  // let mouseX = 0,
+  //   mouseY = 0,
+  //   posX = 0,
+  //   posY = 0;
+
+  // function mouseCoordinates(e) {
+  //   mouseX = e.pageX;
+  //   mouseY = e.pageY;
+  // }
+  // gsap.to({}, 0.01, {
+  //   repeat: -1,
+  //   onRepeat: () => {
+  //     posX += (mouseX - posX) / 6;
+  //     posY += (mouseY - posY) / 6;
+  //     gsap.set(cursor, {
+  //       css: {
+  //         left: posX,
+  //         top: posY,
+  //       },
+  //     });
+  //   },
+  // });
+  // body.addEventListener("mousemove", (e) => {
+  //   mouseCoordinates(e);
   // });
 });
